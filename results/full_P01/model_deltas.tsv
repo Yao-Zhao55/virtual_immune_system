@@ -1,0 +1,4 @@
+seed	baseline	n_patients	delta_macro_f1	improved_patients	paired_patient_ci_low	paired_patient_ci_high
+17	mlp	1	0.019371424697110284	1		
+17	deep_sets	1	0.01300392515487414	1		
+17	logistic	1	0.02218822971801815	1		
