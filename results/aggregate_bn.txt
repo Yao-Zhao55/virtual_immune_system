@@ -1,0 +1,52 @@
+== macro-F1 per held-out patient (n=11) ==
+model          mlp  transformer
+patient_id                     
+P01         0.8145       0.9612
+P02         0.7265       0.6596
+P03         0.8404       0.9043
+P04         0.8330       0.8844
+P05         0.7059       0.9145
+P06         0.7398       0.7824
+P07         0.9424       0.9710
+P08         0.9563       0.9642
+P09         0.9837       0.9867
+P10         0.5545       0.6595
+P11         0.9640       0.9610
+
+== mean over held-out patients ==
+model
+transformer    0.8772
+mlp            0.8237
+
+== transformer minus baseline, per patient ==
+mlp         mean=+0.0534  per-patient={'P01': 0.1467, 'P02': -0.0669, 'P03': 0.0639, 'P04': 0.0514, 'P05': 0.2085, 'P06': 0.0426, 'P07': 0.0287, 'P08': 0.0079, 'P09': 0.003, 'P10': 0.105, 'P11': -0.003}
+
+== per-class recall (mean over folds) ==
+model          mlp  transformer
+cell_type                      
+B            0.925        0.910
+Endothelial  0.970        0.933
+Epithelial   0.903        0.916
+Fibroblast   0.967        0.900
+Myeloid      0.910        0.946
+Plasma       0.890        0.838
+T_NK         0.927        0.917
+
+== per-class F1 (mean over folds) ==
+model          mlp  transformer
+cell_type                      
+B            0.751        0.873
+Endothelial  0.900        0.936
+Epithelial   0.698        0.823
+Fibroblast   0.911        0.921
+Myeloid      0.847        0.878
+Plasma       0.845        0.820
+T_NK         0.813        0.889
+
+== fit cost per fold (median across folds) ==
+             epochs  fit_seconds  peak_gb
+model                                    
+mlp            14.0         7.99     0.02
+transformer    12.0       430.67     4.20
+
+total wall time from log: P01 2h47m, P02 1h22m, P03 1h16m
