@@ -1,0 +1,39 @@
+{
+  "arguments": {
+    "input": "/data/immune_tx/prepared/cohort.h5ad",
+    "output_dir": "/data/immune_tx/runs/full_P11",
+    "n_genes": 512,
+    "max_epochs": 30,
+    "patience": 5,
+    "batch_size": 512,
+    "inner_folds": 3,
+    "split_seed": 17,
+    "seeds": [
+      17
+    ],
+    "device": "cuda",
+    "compile": true,
+    "amp": "bf16",
+    "pilot_patient": "P11",
+    "n_classes": 7
+  },
+  "classes": [
+    "B",
+    "Endothelial",
+    "Epithelial",
+    "Fibroblast",
+    "Myeloid",
+    "Plasma",
+    "T_NK"
+  ],
+  "cuda_device": "NVIDIA A10",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "scanpy": "1.11.5",
+    "anndata": "0.12.19",
+    "torch": "2.15.0"
+  }
+}
