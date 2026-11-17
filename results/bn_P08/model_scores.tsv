@@ -1,0 +1,3 @@
+seed	model	macro_f1
+17	mlp	0.9563084570829448
+17	transformer	0.9642382342219129
