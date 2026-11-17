@@ -1,0 +1,58 @@
+== macro-F1 per held-out patient ==
+model       logistic     mlp  deep_sets  transformer
+patient_id                                          
+P01           0.8797  0.8825     0.8888       0.9018
+P02           0.8753  0.8544     0.7459       0.8220
+P03           0.9604  0.9645     0.8949       0.9449
+P04           0.9062  0.9457     0.8983       0.8920
+P05           0.9331  0.9428     0.9106       0.9359
+P06           0.8963  0.9018     0.7374       0.8660
+P07           0.9811  0.9822     0.9682       0.9796
+P08           0.9726  0.9775     0.9617       0.9704
+P09           0.9887  0.9897     0.9753       0.9758
+P10           0.7025  0.7126     0.6900       0.7346
+P11           0.9808  0.9847     0.9808       0.9870
+
+== mean over the 3 held-out patients ==
+model
+mlp            0.9217
+logistic       0.9161
+transformer    0.9100
+deep_sets      0.8774
+
+== transformer minus baseline, per patient ==
+mlp         mean=-0.0117  per-patient={'P01': 0.0194, 'P02': -0.0324, 'P03': -0.0197, 'P04': -0.0537, 'P05': -0.007, 'P06': -0.0357, 'P07': -0.0026, 'P08': -0.0071, 'P09': -0.0139, 'P10': 0.022, 'P11': 0.0022}
+deep_sets   mean=+0.0326  per-patient={'P01': 0.013, 'P02': 0.0762, 'P03': 0.05, 'P04': -0.0062, 'P05': 0.0253, 'P06': 0.1286, 'P07': 0.0114, 'P08': 0.0087, 'P09': 0.0005, 'P10': 0.0447, 'P11': 0.0061}
+logistic    mean=-0.0061  per-patient={'P01': 0.0222, 'P02': -0.0533, 'P03': -0.0155, 'P04': -0.0142, 'P05': 0.0028, 'P06': -0.0303, 'P07': -0.0015, 'P08': -0.0023, 'P09': -0.0129, 'P10': 0.0321, 'P11': 0.0062}
+
+== per-class recall (mean over folds) ==
+model        logistic    mlp  deep_sets  transformer
+cell_type                                           
+B               0.917  0.922      0.888        0.925
+Endothelial     0.978  0.977      0.953        0.975
+Epithelial      0.944  0.948      0.926        0.950
+Fibroblast      0.964  0.961      0.957        0.970
+Myeloid         0.940  0.949      0.889        0.942
+Plasma          0.928  0.944      0.908        0.948
+T_NK            0.962  0.964      0.917        0.959
+
+== per-class F1 (mean over folds) ==
+model        logistic    mlp  deep_sets  transformer
+cell_type                                           
+B               0.886  0.894      0.877        0.908
+Endothelial     0.978  0.979      0.952        0.971
+Epithelial      0.797  0.805      0.748        0.784
+Fibroblast      0.972  0.972      0.937        0.953
+Myeloid         0.911  0.917      0.868        0.890
+Plasma          0.932  0.941      0.847        0.931
+T_NK            0.937  0.944      0.912        0.933
+
+== fit cost per fold (median across folds) ==
+             epochs  fit_seconds  peak_gb
+model                                    
+deep_sets      19.0       311.01     3.68
+logistic        0.0        13.93     0.00
+mlp             8.0         5.27     0.02
+transformer    11.0       358.77     4.20
+
+total wall time from log: P01 2h47m, P02 1h22m, P03 1h16m
