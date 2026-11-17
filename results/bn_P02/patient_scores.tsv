@@ -1,0 +1,3 @@
+seed	model	patient_id	macro_f1
+17	mlp	P02	0.7265279750486225
+17	transformer	P02	0.6596449252221525
