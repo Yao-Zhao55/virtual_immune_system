@@ -1,0 +1,11 @@
+metric_definition_version: A1.0-2026-11-19
+source_commit: 71efc85ecda48d17ac45354466f97c2199054bae
+frozen_seed: 17
+conditions:
+  full: P0 lognorm, no z-score
+  bn: per-sample z-score (P2-like)
+primary_metric: per-patient macro-F1 over classes present in the patient's true labels
+  (zero_division=0), then 11-patient equal-weight mean
+support30: per-class F1 on all cells first, then average classes with true support>=30
+primary_comparison: MLP - Transformer, patient-paired
+inputs: see manifest.tsv (sha256)
